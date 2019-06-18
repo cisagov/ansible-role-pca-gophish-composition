@@ -25,8 +25,8 @@ one.
 ## Pull requests ##
 
 If you choose to [submit a pull
-request](https://github.com/cisagov/ansible-role-pca-gophish-composition/pulls), you
-will notice that our continuous integration (CI) system runs a fairly
+request](https://github.com/cisagov/ansible-role-pca-gophish-composition/pulls),
+you will notice that our continuous integration (CI) system runs a fairly
 extensive set of linters and syntax checkers.  Your pull request may
 fail these checks, and that's OK.  If you want you can stop there and
 wait for us to make the necessary corrections to ensure your code
