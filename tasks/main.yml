@@ -1,2 +1,16 @@
 ---
-# tasks file for skeleton
+# tasks file for pca-gophish-composition
+- name: Create the /var/pca/pca-gophish-composition directory
+  file:
+    path: /var/pca/pca-gophish-composition
+    state: directory
+    mode: 0755
+
+- name: Download and untar the pca-gophish-composition tarball
+  unarchive:
+    src: >
+      https://api.github.com/repos/cisagov/pca-gophish-composition/tarball/develop
+    dest: /var/pca/pca-gophish-composition
+    remote_src: yes
+    extra_opts:
+      - "--strip-components=1"
