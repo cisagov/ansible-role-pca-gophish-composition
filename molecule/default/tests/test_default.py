@@ -34,4 +34,4 @@ def test_command(host, f):
 @pytest.mark.parametrize("pkg", ["gophish-init"])
 def test_pip_packages(host, pkg):
     """Test that the pip packages were installed."""
-    assert pkg in host.pip_package.get_packages()
+    assert pkg in host.pip_package.get_packages(pip_path="pip3")
