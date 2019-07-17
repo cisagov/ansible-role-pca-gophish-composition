@@ -21,3 +21,4 @@
   pip:
     chdir: /var/pca/pca-gophish-composition
     requirements: requirements.txt
+    executable: pip3
