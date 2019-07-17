@@ -14,3 +14,10 @@
     remote_src: yes
     extra_opts:
       - "--strip-components=1"
+
+# Install the pca-gophish-composition package in order to
+# properly install the gophish_init script
+- name: Install pca-gophish-composition via pip
+  pip:
+    chdir: /var/pca/pca-gophish-composition
+    requirements: requirements.txt
