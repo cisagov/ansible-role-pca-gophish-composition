@@ -6,6 +6,17 @@
       group_by:
         key: os_{{ ansible_distribution }}
 
+# The Ubuntu Docker images we are using
+# (geerlingguy/docker-ubuntu1604-ansible:latest and
+# geerlingguy/docker-ubuntu1804-ansible:latest) require a cache update
+# before they can install anything.
+- name: Update apt cache (Ubuntu)
+  hosts: os_Ubuntu
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
 # When installing packages during later steps, the Fedora Docker images
 # we are using (geerlingguy/docker-fedora32-ansible:latest and
 # cisagov/docker-fedora33-ansible:latest) can throw sporadic errors like:
