@@ -17,6 +17,10 @@ galaxy_info:
       versions:
         - 32
         - 33
+    - name: Ubuntu
+      versions:
+        - bionic
+        - xenial
   galaxy_tags:
     - gophish
 
