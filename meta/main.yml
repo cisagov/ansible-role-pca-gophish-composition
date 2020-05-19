@@ -2,14 +2,25 @@
 galaxy_info:
   author: David Redmin
   description: Ansible role for installing cisagov/pca-gophish-composition
-  company: CISA NCATS
+  company: CISA Cyber Assessments
   license: CC0
   min_ansible_version: 2.0
   platforms:
     - name: Debian
       versions:
-        - stretch
         - buster
+        # Kali linux isn't an option here, but it is based on
+        # Debian Testing:
+        # https://www.kali.org/docs/policy/kali-linux-relationship-with-debian
+        - bullseye
+    - name: Fedora
+      versions:
+        - 32
+        - 33
+    - name: Ubuntu
+      versions:
+        - bionic
+        - xenial
   galaxy_tags:
     - gophish
 

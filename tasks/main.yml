@@ -9,7 +9,7 @@
 - name: Download and untar the pca-gophish-composition tarball
   unarchive:
     src: >
-      https://api.github.com/repos/cisagov/pca-gophish-composition/tarball/v0.0.4
+      https://api.github.com/repos/cisagov/pca-gophish-composition/tarball/develop
     dest: /var/pca/pca-gophish-composition
     remote_src: yes
     extra_opts:
