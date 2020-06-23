@@ -15,7 +15,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 @pytest.mark.parametrize(
     "directory", [{"path": "/var/pca/pca-gophish-composition", "mode": "0o755"}]
 )
-def test_packages(host, directory):
+def test_directories(host, directory):
     """Test that the appropriate directories were created."""
     assert host.file(directory["path"]).exists
     assert host.file(directory["path"]).is_directory
@@ -27,6 +27,12 @@ def test_command(host, f):
     """Test that appropriate files exist."""
     assert host.file(f).exists
     assert host.file(f).is_file
+
+
+@pytest.mark.parametrize("pkg", ["at", "jq"])
+def test_packages(host, pkg):
+    """Test that appropriate packages were installed."""
+    assert host.package(pkg).is_installed
 
 
 # Even though the module name is gophish_init (with an underscore) in setup.py

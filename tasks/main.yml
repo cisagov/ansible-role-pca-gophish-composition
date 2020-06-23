@@ -22,3 +22,9 @@
     chdir: /var/pca/pca-gophish-composition
     requirements: requirements.txt
     executable: pip3
+
+- name: Install packages needed by gophish-tools helper scripts
+  package:
+    name:
+      - at
+      - jq
