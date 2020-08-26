@@ -3,6 +3,8 @@ galaxy_info:
   author: David Redmin
   description: Ansible role for installing cisagov/pca-gophish-composition
   company: CISA Cyber Assessments
+  galaxy_tags:
+    - gophish
   license: CC0
   min_ansible_version: 2.0
   platforms:
@@ -21,8 +23,7 @@ galaxy_info:
       versions:
         - bionic
         - xenial
-  galaxy_tags:
-    - gophish
+  role_name: pca_gophish
 
 dependencies:
   - src: https://github.com/cisagov/ansible-role-docker
