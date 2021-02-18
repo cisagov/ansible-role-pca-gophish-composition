@@ -26,7 +26,6 @@ galaxy_info:
         - 33
     - name: Ubuntu
       versions:
-        - xenial
         - bionic
         - focal
   role_name: pca_gophish
