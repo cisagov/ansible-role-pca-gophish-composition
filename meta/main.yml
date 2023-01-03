@@ -32,7 +32,7 @@ galaxy_info:
         - bionic
         - focal
         - jammy
-  role_name: pca_gophish
+  role_name: pca_gophish_composition
 
 dependencies:
   - src: https://github.com/cisagov/ansible-role-docker
