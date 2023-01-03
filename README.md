@@ -1,8 +1,7 @@
 # ansible-role-pca-gophish-composition #
 
 [![GitHub Build Status](https://github.com/cisagov/ansible-role-pca-gophish-composition/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-pca-gophish-composition/actions)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-role-pca-gophish-composition.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-pca-gophish-composition/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-role-pca-gophish-composition.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-pca-gophish-composition/context:python)
+[![CodeQL](https://github.com/cisagov/ansible-role-pca-gophish-composition/workflows/CodeQL/badge.svg)](https://github.com/cisagov/ansible-role-pca-gophish-composition/actions/workflows/codeql-analysis.yml)
 
 An Ansible role for installing [cisagov/pca-gophish-composition](https://github.com/cisagov/pca-gophish-composition)
 
@@ -23,7 +22,7 @@ None.
 
 ## Dependencies ##
 
-None.
+- [cisagov/ansible-role-docker](https://github.com/cisagov/ansible-role-docker)
 
 ## Example Playbook ##
 
@@ -33,8 +32,10 @@ Here's how to use it in a playbook:
 - hosts: phishing
   become: yes
   become_method: sudo
-  roles:
-    - pca-gophish-composition
+  tasks:
+    - name: Install the PCA Gophish composition
+      ansible.builtin.include_role:
+        name: pca_gophish_composition
 ```
 
 ## Contributing ##
