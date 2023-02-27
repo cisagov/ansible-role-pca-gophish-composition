@@ -1,13 +1,13 @@
 ---
 # tasks file for pca-gophish-composition
 - name: Create the /var/pca/pca-gophish-composition directory
-  file:
+  ansible.builtin.file:
     path: /var/pca/pca-gophish-composition
     state: directory
     mode: 0755
 
 - name: Download and untar the pca-gophish-composition tarball
-  unarchive:
+  ansible.builtin.unarchive:
     src: >
       https://api.github.com/repos/cisagov/pca-gophish-composition/tarball/develop
     dest: /var/pca/pca-gophish-composition
@@ -30,7 +30,7 @@
     requirements: requirements.txt
 
 - name: Install packages needed by gophish-tools helper scripts
-  package:
+  ansible.builtin.package:
     name:
       - at
       - jq
