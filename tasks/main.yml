@@ -12,8 +12,7 @@
     extra_opts:
       - "--strip-components=1"
     remote_src: yes
-    src: >
-      https://api.github.com/repos/cisagov/pca-gophish-composition/tarball/develop
+    src: https://api.github.com/repos/cisagov/pca-gophish-composition/tarball/develop
 
 # Install the pca-gophish-composition package in order to properly
 # install the gophish_init script
