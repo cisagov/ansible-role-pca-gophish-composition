@@ -1,5 +1,4 @@
 ---
-# tasks file for pca-gophish-composition
 - name: Create the /var/pca/pca-gophish-composition directory
   ansible.builtin.file:
     mode: 0755
