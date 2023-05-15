@@ -5,13 +5,6 @@
     path: /var/pca/pca-gophish-composition
     state: directory
 
-- name: Install packages needed by Ansible and gophish-tools helper scripts
-  ansible.builtin.package:
-    name:
-      - at
-      - jq
-      - tar
-
 - name: Download and untar the pca-gophish-composition tarball
   ansible.builtin.unarchive:
     dest: /var/pca/pca-gophish-composition
@@ -33,3 +26,9 @@
     # systems, but not others.
     extra_args: "{{ (ansible_distribution == 'Kali' or (ansible_distribution == 'Debian' and ansible_distribution_release == 'bookworm')) | ternary('--break-system-packages', omit) }}"
     requirements: requirements.txt
+
+- name: Install packages needed by gophish-tools helper scripts
+  ansible.builtin.package:
+    name:
+      - at
+      - jq
