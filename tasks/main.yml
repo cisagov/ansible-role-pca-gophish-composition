@@ -5,6 +5,11 @@
     path: /var/pca/pca-gophish-composition
     state: directory
 
+- name: Install the tar package
+  ansible.builtin.package:
+    name:
+     - tar
+
 - name: Download and untar the pca-gophish-composition tarball
   ansible.builtin.unarchive:
     dest: /var/pca/pca-gophish-composition
