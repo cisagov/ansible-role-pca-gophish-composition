@@ -3,7 +3,7 @@
   hosts: all
   tasks:
     - name: Group hosts by OS distribution
-      group_by:
+      ansible.builtin.group_by:
         key: os_{{ ansible_distribution }}
 # When installing packages during later steps, the Fedora Docker images
 # we are using (geerlingguy/docker-fedora32-ansible:latest and
