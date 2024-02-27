@@ -29,7 +29,7 @@ def test_command(host, f):
     assert host.file(f).is_file
 
 
-@pytest.mark.parametrize("pkg", ["at", "jq"])
+@pytest.mark.parametrize("pkg", ["at", "jq", "python3-virtualenv"])
 def test_packages(host, pkg):
     """Test that appropriate packages were installed."""
     assert host.package(pkg).is_installed
@@ -42,4 +42,8 @@ def test_packages(host, pkg):
 @pytest.mark.parametrize("pkg", ["gophish-init"])
 def test_pip_packages(host, pkg):
     """Test that the pip packages were installed."""
-    assert pkg in host.pip.get_packages(pip_path="pip3")
+    # Note that we are using the version of pip3 in the Python virtual
+    # environment that has been created.
+    assert pkg in host.pip.get_packages(
+        pip_path="/var/pca/pca-gophish-composition/.venv/bin/pip"
+    )
