@@ -28,8 +28,8 @@
           # at and jq are needed by the gophish-tools helper scripts
           - at
           - jq
-          # virtualenv is used by the ansible.builtin.pip module below
-          - virtualenv
+          # python3-virtualenv is used by the ansible.builtin.pip module below
+          - python3-virtualenv
     - name: Install pca-gophish-composition in a Python virtual environment
       ansible.builtin.pip:
         chdir: /var/pca/pca-gophish-composition
