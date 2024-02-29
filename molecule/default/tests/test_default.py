@@ -29,10 +29,19 @@ def test_command(host, f):
     assert host.file(f).is_file
 
 
-@pytest.mark.parametrize("pkg", ["at", "jq", "python3-virtualenv"])
-def test_packages(host, pkg):
+def test_packages(host):
     """Test that appropriate packages were installed."""
-    assert host.package(pkg).is_installed
+    pkgs = None
+    if (
+        host.system_info.distribution == "debian"
+        and host.system_info.codename == "buster"
+    ):
+        pkgs = ["at", "jq", "python3-virtualenv", "virtualenv"]
+    else:
+        pkgs = ["at", "jq", "python3-virtualenv"]
+
+    for pkg in pkgs:
+        assert host.package(pkg).is_installed
 
 
 # Even though the module name is gophish_init (with an underscore) in setup.py

@@ -1,4 +1,16 @@
 ---
+- name: Load var file with package names based on the OS type
+  ansible.builtin.include_vars: "{{ lookup('first_found', params) }}"
+  vars:
+    params:
+      files:
+        - "{{ ansible_distribution }}_{{ ansible_distribution_release }}.yml"
+        - "{{ ansible_distribution }}.yml"
+        - "{{ ansible_os_family }}.yml"
+        - default.yml
+      paths:
+        - "{{ role_path }}/vars"
+
 - name: Create the /var/pca/pca-gophish-composition directory
   ansible.builtin.file:
     mode: 0755
@@ -24,12 +36,7 @@
   block:
     - name: Install prerequisites
       ansible.builtin.package:
-        name:
-          # at and jq are needed by the gophish-tools helper scripts
-          - at
-          - jq
-          # python3-virtualenv is used by the ansible.builtin.pip module below
-          - python3-virtualenv
+        name: "{{ prerequisite_package_names }}"
     - name: Install pca-gophish-composition in a Python virtual environment
       ansible.builtin.pip:
         chdir: /var/pca/pca-gophish-composition

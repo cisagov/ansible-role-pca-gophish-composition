@@ -1,0 +1,9 @@
+---
+# The names of the packages that must be installed as prerequisites
+# for the installation of cisagov/pca-gophish-composition
+prerequisite_package_names:
+  # at and jq are needed by the gophish-tools helper scripts
+  - at
+  - jq
+  # python3-virtualenv is used by the ansible.builtin.pip module
+  - python3-virtualenv
