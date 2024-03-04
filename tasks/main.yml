@@ -1,4 +1,16 @@
 ---
+- name: Load var file with package names based on the OS type
+  ansible.builtin.include_vars: "{{ lookup('first_found', params) }}"
+  vars:
+    params:
+      files:
+        - "{{ ansible_distribution }}_{{ ansible_distribution_release }}.yml"
+        - "{{ ansible_distribution }}.yml"
+        - "{{ ansible_os_family }}.yml"
+        - default.yml
+      paths:
+        - "{{ role_path }}/vars"
+
 - name: Create the /var/pca/pca-gophish-composition directory
   ansible.builtin.file:
     mode: 0755
@@ -20,20 +32,13 @@
 
 # Install the pca-gophish-composition package in order to properly
 # install the gophish_init script
-- name: Install pca-gophish-composition via pip
-  ansible.builtin.pip:
-    chdir: /var/pca/pca-gophish-composition
-    executable: pip3
-    # The extra argument is necessary on Debian 12, which correctly
-    # recognizes that the local Python is externally managed
-    # (i.e. managed via the system package manager and not by pip).
-    # The extra argument is understood by pip on Debian 12 and Kali
-    # systems, but not others.
-    extra_args: "{{ (ansible_distribution == 'Kali' or (ansible_distribution == 'Debian' and ansible_distribution_release == 'bookworm')) | ternary('--break-system-packages', omit) }}"
-    requirements: requirements.txt
-
-- name: Install packages needed by gophish-tools helper scripts
-  ansible.builtin.package:
-    name:
-      - at
-      - jq
+- name: Install pca-gophish-composition
+  block:
+    - name: Install prerequisites
+      ansible.builtin.package:
+        name: "{{ prerequisite_package_names }}"
+    - name: Install pca-gophish-composition in a Python virtual environment
+      ansible.builtin.pip:
+        chdir: /var/pca/pca-gophish-composition
+        requirements: requirements.txt
+        virtualenv: /var/pca/pca-gophish-composition/.venv
