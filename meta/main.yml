@@ -22,15 +22,21 @@ galaxy_info:
   min_ansible_version: "2.10"
   namespace: cisagov
   platforms:
-    - name: Amazon Linux
-      versions:
-        - "2023"
+    # Amazon Linux 2023 does not (yet?) offer docker-compose or the
+    # Docker compose plugin:
+    # https://github.com/amazonlinux/amazon-linux-2023/issues/186
+    # - name: Amazon Linux
+    #   versions:
+    #     - "2023"
     - name: Debian
       versions:
         - buster
         - bullseye
         - bookworm
-        - trixie
+        # Docker does not yet officially support Debian Trixie.  See
+        # https://docs.docker.com/engine/install/debian/ for more
+        # details.
+        # - trixie
     - name: Fedora
       versions:
         - "38"
