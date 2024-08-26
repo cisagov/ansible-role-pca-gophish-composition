@@ -27,7 +27,9 @@ galaxy_info:
         - "2023"
     - name: Debian
       versions:
-        - buster
+        # Debian Buster only offers Python 3.7, which is unsupported
+        # by cisagov/pca-gophish-composition.
+        # - buster
         - bullseye
         - bookworm
         # Docker does not yet officially support Debian Trixie.  See
