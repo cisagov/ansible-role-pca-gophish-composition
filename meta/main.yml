@@ -46,7 +46,9 @@ galaxy_info:
         - "2023"
     - name: Ubuntu
       versions:
-        - focal
+        # Ubuntu Focal only offers Python 3.8, which is unsupported by
+        # cisagov/pca-gophish-composition.
+        # - focal
         - jammy
         - noble
   role_name: pca_gophish_composition

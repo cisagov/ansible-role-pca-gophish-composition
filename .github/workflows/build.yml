@@ -199,7 +199,9 @@ jobs:
           - fedora40-systemd
           - fedora41-systemd
           - kali-systemd
-          - ubuntu-20-systemd
+          # Ubuntu Focal only offers Python 3.8, which is unsupported
+          # by cisagov/pca-gophish-composition.
+          # - ubuntu-20-systemd
           - ubuntu-22-systemd
           - ubuntu-24-systemd
         scenario:
