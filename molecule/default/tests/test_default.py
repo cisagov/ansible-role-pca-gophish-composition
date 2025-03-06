@@ -31,14 +31,7 @@ def test_command(host, f):
 
 def test_packages(host):
     """Test that appropriate packages were installed."""
-    pkgs = None
-    if (
-        host.system_info.distribution == "debian"
-        and host.system_info.codename == "buster"
-    ):
-        pkgs = ["at", "jq", "python3-virtualenv", "virtualenv"]
-    else:
-        pkgs = ["at", "jq", "python3-virtualenv"]
+    pkgs = ["at", "jq", "python3-virtualenv"]
 
     for pkg in pkgs:
         assert host.package(pkg).is_installed
