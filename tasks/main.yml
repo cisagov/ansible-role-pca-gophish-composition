@@ -20,7 +20,7 @@
 - name: Install the tar package
   ansible.builtin.package:
     name:
-     - tar
+      - tar
 
 - name: Download and untar the pca-gophish-composition tarball
   ansible.builtin.unarchive:
