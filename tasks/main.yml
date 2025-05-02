@@ -13,7 +13,7 @@
 
 - name: Create the /var/pca/pca-gophish-composition directory
   ansible.builtin.file:
-    mode: 0755
+    mode: u=rwx,g=rx,o=rx
     path: /var/pca/pca-gophish-composition
     state: directory
 
