@@ -13,20 +13,20 @@
 
 - name: Create the /var/pca/pca-gophish-composition directory
   ansible.builtin.file:
-    mode: 0755
+    mode: u=rwx,g=rx,o=rx
     path: /var/pca/pca-gophish-composition
     state: directory
 
 - name: Install the tar package
   ansible.builtin.package:
     name:
-     - tar
+      - tar
 
 - name: Download and untar the pca-gophish-composition tarball
   ansible.builtin.unarchive:
     dest: /var/pca/pca-gophish-composition
     extra_opts:
-      - "--strip-components=1"
+      - --strip-components=1
     remote_src: true
     src: https://api.github.com/repos/cisagov/pca-gophish-composition/tarball/develop
 
