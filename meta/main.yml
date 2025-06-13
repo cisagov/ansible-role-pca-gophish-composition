@@ -38,17 +38,13 @@ galaxy_info:
         # - trixie
     - name: Fedora
       versions:
-        - "39"
-        - "40"
         - "41"
+        - "42"
     - name: Kali
       versions:
         - "2023"
     - name: Ubuntu
       versions:
-        # Ubuntu Focal only offers Python 3.8, which is unsupported by
-        # cisagov/pca-gophish-composition.
-        # - focal
         - jammy
         - noble
   role_name: pca_gophish_composition
