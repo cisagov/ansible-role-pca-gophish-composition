@@ -32,10 +32,11 @@ galaxy_info:
         # - buster
         - bullseye
         - bookworm
-        # Docker does not yet officially support Debian Trixie.  See
+        - trixie
+        # Docker does not yet officially support Debian Forky.  See
         # https://docs.docker.com/engine/install/debian/ for more
         # details.
-        # - trixie
+        # - forky
     - name: Fedora
       versions:
         - "41"
