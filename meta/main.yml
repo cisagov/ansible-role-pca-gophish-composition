@@ -32,7 +32,9 @@ galaxy_info:
         # Debian Buster only offers Python 3.7, which is unsupported
         # by cisagov/pca-gophish-composition.
         # - buster
-        - bullseye
+        # Debian Bullseye only offers Python 3.9, which is unsupported
+        # by cisagov/pca-gophish-composition.
+        # - bullseye
         - bookworm
         - trixie
         # Docker does not yet officially support Debian Forky.  See

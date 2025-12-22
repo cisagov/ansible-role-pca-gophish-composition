@@ -222,7 +222,9 @@ jobs:
           # Debian Buster only offers Python 3.7, which is unsupported
           # by cisagov/pca-gophish-composition.
           # - debian10-systemd
-          - debian11-systemd
+          # Debian Bullseye only offers Python 3.9, which is
+          # unsupported by cisagov/pca-gophish-composition.
+          # - debian11-systemd
           - debian12-systemd
           - debian13-systemd
           # Docker does not yet officially support Debian Forky.  See
