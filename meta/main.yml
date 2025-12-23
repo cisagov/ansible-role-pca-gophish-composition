@@ -22,15 +22,19 @@ galaxy_info:
   min_ansible_version: "2.10"
   namespace: cisagov
   platforms:
-    - name: Amazon Linux
-      versions:
-        - "2023"
+    # Amazon Linux 2023 only offers Python 3.9, which is unsupported
+    # by cisagov/pca-gophish-composition.
+    # - name: Amazon Linux
+    #   versions:
+    #     - "2023"
     - name: Debian
       versions:
         # Debian Buster only offers Python 3.7, which is unsupported
         # by cisagov/pca-gophish-composition.
         # - buster
-        - bullseye
+        # Debian Bullseye only offers Python 3.9, which is unsupported
+        # by cisagov/pca-gophish-composition.
+        # - bullseye
         - bookworm
         - trixie
         # Docker does not yet officially support Debian Forky.  See
@@ -39,8 +43,8 @@ galaxy_info:
         # - forky
     - name: Fedora
       versions:
-        - "41"
         - "42"
+        - "43"
     - name: Kali
       versions:
         - "2023"

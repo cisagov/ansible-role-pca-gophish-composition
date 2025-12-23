@@ -100,7 +100,7 @@ jobs:
           permissions_monitoring_config: ${{ vars.ACTIONS_PERMISSIONS_CONFIG }}
       - id: setup-env
         uses: cisagov/setup-env-github-action@v1
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - id: setup-python
         uses: actions/setup-python@v6
         with:
@@ -216,19 +216,23 @@ jobs:
           - amd64
           - arm64
         platform:
-          - amazonlinux2023-systemd
+          # Amazon Linux 2023 only offers Python 3.9, which is
+          # unsupported by cisagov/pca-gophish-composition.
+          # - amazonlinux2023-systemd
           # Debian Buster only offers Python 3.7, which is unsupported
           # by cisagov/pca-gophish-composition.
           # - debian10-systemd
-          - debian11-systemd
+          # Debian Bullseye only offers Python 3.9, which is
+          # unsupported by cisagov/pca-gophish-composition.
+          # - debian11-systemd
           - debian12-systemd
           - debian13-systemd
           # Docker does not yet officially support Debian Forky.  See
           # https://docs.docker.com/engine/install/debian/ for more
           # details.
           # - debian14-systemd
-          - fedora41-systemd
           - fedora42-systemd
+          - fedora43-systemd
           - kali-systemd
           - ubuntu-22-systemd
           - ubuntu-24-systemd
@@ -263,7 +267,7 @@ jobs:
           permissions_monitoring_config: ${{ vars.ACTIONS_PERMISSIONS_CONFIG }}
       - id: setup-env
         uses: cisagov/setup-env-github-action@v1
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - id: setup-python
         uses: actions/setup-python@v6
         with:

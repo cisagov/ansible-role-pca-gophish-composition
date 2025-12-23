@@ -1,6 +1,7 @@
 # ansible-role-pca-gophish-composition #
 
 [![GitHub Build Status](https://github.com/cisagov/ansible-role-pca-gophish-composition/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-pca-gophish-composition/actions)
+[![License](https://img.shields.io/github/license/cisagov/ansible-role-pca-gophish-composition)](https://spdx.org/licenses/)
 [![CodeQL](https://github.com/cisagov/ansible-role-pca-gophish-composition/workflows/CodeQL/badge.svg)](https://github.com/cisagov/ansible-role-pca-gophish-composition/actions/workflows/codeql-analysis.yml)
 
 An Ansible role for installing [cisagov/pca-gophish-composition](https://github.com/cisagov/pca-gophish-composition)
